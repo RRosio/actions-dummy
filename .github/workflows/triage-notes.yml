@@ -39,7 +39,7 @@ jobs:
       template_path: "meetings/triage_TEMPLATE.md"
       # Repository path
       output_path: "meetings/archive/%Y%m%d-triage_agenda_and_minutes.md"
-      hackmd_team: "jupyter-community"
+      hackmd_team: "automation-testing"
       branch_name: "%Y-%m-%d-meeting-notes"
       force_push: true
       pr_title: "Add Triage meeting notes %Y-%m-%d"
@@ -85,6 +85,6 @@ jobs:
     uses: ./.github/workflows/_sync-meeting-notes.yml
     with:
       pr_number: "${{ github.event.issue.number }}"
-      hackmd_team: "jupyter-triage-team"
+      hackmd_team: "automation-testing"
     secrets:
       HACKMD_TOKEN: "${{ secrets.HACKMD_TOKEN }}"
