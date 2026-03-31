@@ -69,9 +69,9 @@ The issue should represent real, relevant, feasible work. In short, if a knowled
     b. bug
     c. feature parity
     d. Tag milestones
-5. Identify duplicates
-6. Respond to issues
-7. Assign another person
+3. Identify duplicates
+4. Respond to issues
+5. Assign another person
 
 Add milestone if you can achieve the goal.
 
