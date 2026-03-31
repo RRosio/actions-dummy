@@ -56,6 +56,8 @@ jobs:
       HACKMD_TOKEN: "${{ secrets.HACKMD_TOKEN }}"
 
   triage-analysis:
+    permissions:
+      actions: "write"
     name: "Triage Analysis by Agent"
     needs: create
     if: ${{ github.event_name == 'workflow_dispatch' }}
