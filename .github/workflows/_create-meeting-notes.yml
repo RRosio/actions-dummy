@@ -134,7 +134,7 @@ jobs:
               triage_issues=triage_items_text,
             )
           )
-          EOF          
+          EOF
           echo "output_path=$output_path" >> $GITHUB_ENV
           note_title="$(awk '/^# .*/{print substr($0,3); exit}' "$output_path")"
           echo "note_title=$note_title" >> $GITHUB_ENV
