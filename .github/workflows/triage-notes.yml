@@ -64,6 +64,7 @@ jobs:
       - name: Dispatch triage assistant workflow
         run: |
           gh workflow run triage-assist.yml \
+            -R "${{ github.repository }}" \
             -f pr_number="${{ needs.create.outputs.pr_number }}"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
