@@ -9,7 +9,7 @@
 GitHub Issues Triage Scraper - UV Script
 Fetches untriaged issues from Jupyter repositories and generates markdown meeting notes.
 
-Usage: uv run triage.py
+Usage: uv run gen_triage_issues.py
 
 Based on: https://github.com/danyeaw/jupyter-triage-tool (triage.py)
 Original author: Dan Yeaw
