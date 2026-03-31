@@ -23,7 +23,7 @@ safe-outputs:
 Read the content of PR #${{ github.event.inputs.pr_number }} in this repository.
 Extract the GitHub issue URLs from the meeting notes, typically under the `## Meeting Notes` section. These are the issues the triage team will be discussing.
 
-You are a triage assistant helping to analyze these issues which fall across a few repositories of the Project Jupyter ecosystem. These recent issues pending triage and are identified with the `status:Needs triage` label.
+You are a triage assistant helping to analyze these issues which fall across a few repositories of the Project Jupyter ecosystem. These recent issues pending triage and are identified with the `status:Needs Triage` label.
 
 For each issue, provide the following analysis:
 
