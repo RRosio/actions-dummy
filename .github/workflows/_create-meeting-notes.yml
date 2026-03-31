@@ -73,6 +73,10 @@ on:
         required: false
         default: false
         type: boolean
+    outputs:
+        pr_number:
+            description: "PR number of the created PR"
+            value: ${{ jobs.main.outputs.pr_number }}
     secrets:
       GITHUB_USER_TOKEN:
         description: A token with sufficient permissions to commit and push to the target repository
@@ -188,6 +192,7 @@ jobs:
           sed 's/`/\\`/g' "$RUNNER_TEMP/pr-body" >> $GITHUB_ENV
           echo "$EOV" >> $GITHUB_ENV
       - name: Create PR
+        id: create_pr
         if: ${{ !inputs.dry_run }}
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
         with:
@@ -200,6 +205,8 @@ jobs:
               base: "main",
               title: env.pr_title,
             });
+            core.setOutput('pr_number', resp.data.number.toString())
+
             let pr_body =
 
             await github.rest.pulls.update({
@@ -221,3 +228,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           template_path: ${{ inputs.template_path }}
           hackmd_team: ${{ inputs.hackmd_team }}
+    outputs:
+        pr_number: ${{ steps.create_pr.outputs.pr_number }}

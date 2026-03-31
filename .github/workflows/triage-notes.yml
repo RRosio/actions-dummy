@@ -54,6 +54,19 @@ jobs:
     secrets:
       HACKMD_TOKEN: "${{ secrets.HACKMD_TOKEN }}"
 
+  triage-analysis:
+    name: "Triage Analysis by Agent"
+    needs: create
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: Dispatch triage assistant workflow
+        run: |
+          gh aw run triage-assist \
+            -f pr_number="${{ needs.create.outputs.pr_number }}"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+
   sync-comment-trigger:
     name: "React to the triggering comment"
     if: "${{ github.event.issue.pull_request && contains(github.event.comment.body, '/bot please sync notes') }}"
