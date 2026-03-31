@@ -63,7 +63,7 @@ jobs:
     steps:
       - name: Dispatch triage assistant workflow
         run: |
-          gh workflow run triage-assist.yml \
+          gh workflow run triage-assist.lock.yml \
             -R "${{ github.repository }}" \
             -f pr_number="${{ needs.create.outputs.pr_number }}"
         env:
