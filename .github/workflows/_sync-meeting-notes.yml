@@ -42,7 +42,7 @@ jobs:
       - name: "Checkout the PR branch"
         run: gh pr checkout ${{ inputs.pr_number }}
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_USER_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN || github.token  }}
       - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
           python-version: '3.12'
