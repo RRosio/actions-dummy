@@ -15,7 +15,8 @@ on:
         required: false
         default: "today"
         type: "string"
-
+  schedule:
+    - cron: "45 16 * * 2"
   issue_comment:
     types:
       - "created"
